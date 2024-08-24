@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 17:50:19 by joandre-          #+#    #+#             */
-/*   Updated: 2024/08/24 13:10:46 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/08/24 13:16:06 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-# include "lib/libft/libft.h"
-# include "lib/get_next_line/get_next_line.h"
-# include "lib/minilibx-linux/mlx.h"
+# include "../lib/libft/libft.h"
+# include "../lib/get_next_line/get_next_line.h"
+# include "../lib/minilibx-linux/mlx.h"
 # include <fcntl.h>
 # include <X11/keysym.h>
 
@@ -47,16 +47,26 @@ typedef struct s_img
 	t_axis	px_size;
 }	t_img;
 
+typedef struct s_anim
+{
+	t_img	s0;
+	t_img	s1;
+	t_img	s2;
+	t_img	s3;
+	t_img	s4;
+}	t_anim;
+
 typedef struct s_game
 {
 	t_list	*map;
 	t_img	p;
-	t_img	e;
+	t_anim	e;
 	t_img	c;
 	t_img	w;
 	t_img	s;
+	t_img	x;
 	t_axis	player;
-	size_t	moves;
+	int		moves;
 }	t_game;
 
 typedef struct s_mlx
