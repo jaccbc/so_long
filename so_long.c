@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/05 20:22:36 by joandre-          #+#    #+#             */
-/*   Updated: 2024/08/21 21:46:08 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/08/27 12:03:02 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static t_list	*argv_check(int ac, char **av)
 	name = ft_strrchr(av[1], '.');
 	if (name)
 	{
-		if (!ft_strncmp(".ber", name, 4))
+		if (!ft_strncmp(name, ".ber", 5))
 			return (map_check(av[1]));
 	}
 	print_error("The map file must end with the .ber extension");

@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 18:10:06 by joandre-          #+#    #+#             */
-/*   Updated: 2024/08/21 22:32:23 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/08/27 11:40:58 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,27 @@ t_list	*fetch_map(int fd)
 	if (!map)
 		return (print_error("Memory allocation failure!"), NULL);
 	return (map);
+}
+
+void	add_patrol(t_list *map, t_axis limit)
+{
+	t_axis	axi;
+
+	limit.y -= 2;
+	limit.x -= 2;
+	axi.y = 0;
+	while (map && axi.y < limit.y)
+	{
+		axi.x = 0;
+		while (axi.y && axi.x < limit.x)
+		{
+			if (((char *)map->content)[axi.x] == '1'
+				&& axi.x > 2 && axi.y > 2
+				&& axi.x % 3 && axi.y % 2)
+				((char *)map->content)[axi.x] = 'X';
+			++axi.x;
+		}
+		map = map->next;
+		++axi.y;
+	}
 }
