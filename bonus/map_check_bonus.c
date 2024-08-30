@@ -6,7 +6,7 @@
 /*   By: joandre- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 02:41:42 by joandre-          #+#    #+#             */
-/*   Updated: 2024/08/21 22:58:04 by joandre-         ###   ########.fr       */
+/*   Updated: 2024/08/30 01:57:51 by joandre-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static bool	valid_characters(t_list *map)
 		i = 0;
 		while (valid((((char *)map->content)[i]), &asset))
 			++i;
-		if (((char *)map->content)[i] != '\0')
-			break ;
+		if (((char *)map->content)[i])
+			return (false);
 		map = map->next;
 	}
 	if (asset.s && asset.c && asset.e == 1 && asset.p == 1)
